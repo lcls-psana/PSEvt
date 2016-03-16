@@ -14,6 +14,7 @@
 // C/C++ Headers --
 //-----------------
 #include <map>
+#include <vector>
 #include <string>
 
 //----------------------
@@ -90,6 +91,10 @@ public:
    */
   std::string alias(const Pds::Src& src) const;
 
+  void addsrc(const Pds::Src& name);
+
+  const std::vector<Pds::Src>& srcs();
+
 protected:
 
 private:
@@ -102,6 +107,7 @@ private:
   
   std::map<std::string, Pds::Src> m_alias2src;         ///< Mapping from alias name to Src
   std::map<Pds::Src, std::string, SrcCmp> m_src2alias; ///< Mapping from Src to alias name
+  std::vector<Pds::Src> m_srcs;
 
 };
 

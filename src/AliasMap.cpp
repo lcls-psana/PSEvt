@@ -40,6 +40,7 @@ namespace PSEvt {
 AliasMap::AliasMap ()
   : m_alias2src()
   , m_src2alias()
+  , m_srcs()
 {
 }
 
@@ -90,6 +91,20 @@ bool
 AliasMap::SrcCmp::operator()(const Pds::Src& lhs, const Pds::Src& rhs) const
 {
   return PSEvt::cmpPdsSrc(lhs, rhs) < 0;
+}
+
+void
+AliasMap::addsrc(const Pds::Src& src)
+{
+  for(std::vector<Pds::Src>::const_iterator s = m_srcs.begin(); s != m_srcs.end(); ++s)
+    if (*s==src) return;
+  m_srcs.push_back(src);
+}
+
+const std::vector<Pds::Src>&
+AliasMap::srcs()
+{
+  return m_srcs;
 }
 
 } // namespace PSEvt

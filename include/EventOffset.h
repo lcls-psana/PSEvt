@@ -64,10 +64,7 @@ public:
 
   virtual std::vector<std::string> filenames() const = 0;
   virtual std::vector<int64_t> offsets() const = 0;
-  virtual int64_t configureOffset() const = 0;
-  virtual int64_t beginRunOffset() const = 0;
-  virtual std::string lastBeginCalibCycleFilename() const = 0;
-  virtual int64_t lastBeginCalibCycleOffset() const = 0;
+  virtual std::string lastBeginCalibCycleDgram() const = 0;
   
   /// Dump object in human-readable format
   virtual void print(std::ostream& os) const = 0;

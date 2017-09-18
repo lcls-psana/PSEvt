@@ -15,6 +15,7 @@
 //-----------------
 #include <iosfwd>
 #include <vector>
+#include <boost/shared_ptr.hpp>
 #include <boost/utility.hpp>
 
 //----------------------
@@ -64,11 +65,11 @@ public:
 
   virtual std::vector<std::string> filenames() const = 0;
   virtual std::vector<int64_t> offsets() const = 0;
-  virtual std::string lastBeginCalibCycleDgram() const = 0;
-  
+  virtual const boost::shared_ptr<std::string> lastBeginCalibCycleDgram() const = 0;
+
   /// Dump object in human-readable format
   virtual void print(std::ostream& os) const = 0;
-  
+
 protected:
 
   // Default constructor
